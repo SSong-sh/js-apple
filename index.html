@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="main.css" />
     <title>Hello, world!</title>
   </head>
-  <body>
+  <body class="dark">
     <div class="black-bg">
       <div class="white-bg">
         <h4>로그인하세요</h4>
@@ -58,12 +58,25 @@
 
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <span class="navbar-brand">Navbar</span>
+        <span class="navbar-brand">JSShop</span>
+        <span class="badge bg-dark ms-auto mx-3">Dark 🔄</span>
         <button class="navbar-toggler" type="button">
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
     </nav>
+
+    <script>
+      var count = 0;
+      $(".badge").on("click", function () {
+        count += 1;
+        if (count % 2 == 1) {
+          $(".badge").html("Light 🔄");
+        } else {
+          $(".badge").html("Dark 🔄");
+        }
+      });
+    </script>
 
     <ul class="list-group">
       <li class="list-group-item">An item</li>
