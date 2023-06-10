@@ -91,6 +91,32 @@
       <button id="btn-login">로그인</button>
     </div>
 
+    <div class="alert alert-danger">
+      <span id="num">5</span>초 이내 구매시 사은품 증정
+    </div>
+    <script>
+      // var time = 5;
+      // function countTime() {
+      //   if (time != 0) {
+      //     $(".alert span").text(time);
+      //     time -= 1;
+      //   } else {
+      //     $(".alert").hide();
+      //   }
+      // }
+      // var repeat = setInterval(countTime, 1000);
+
+      var count = 5;
+
+      setInterval(function () {
+        count -= 1;
+        if (count >= 0) {
+          document.querySelector("#num").innerHTML = count;
+        } else {
+          $(".alert").hide();
+        }
+      }, 1000);
+    </script>
     <script>
       document
         .querySelector(".navbar-toggler")
