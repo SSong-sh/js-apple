@@ -38,9 +38,13 @@
 
     <script>
       $("form").on("submit", function (e) {
-        if (document.getElementById("email").value == "") {
+        var 입력한값 = document.getElementById("email").value;
+        if (입력한값 == "") {
           alert("아이디 입력안함");
           e.preventDefault();
+        }
+        if (/\S+@\S+\.\S+/.test(입력한값)) {
+          alert("이메일형식아님");
         }
       });
 
