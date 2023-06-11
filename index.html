@@ -43,19 +43,24 @@
           alert("아이디 입력안함");
           e.preventDefault();
         }
-        if (/\S+@\S+\.\S+/.test(입력한값)) {
+        if (/\S+@\S+\.\S+/.test(입력한값) == false) {
           alert("이메일형식아님");
+          e.preventDefault();
         }
       });
 
       $("form").on("submit", function (e) {
-        if (document.getElementById("pw").value == "") {
+        var 비밀번호값 = document.getElementById("pw").value;
+        if (비밀번호값 == "") {
           alert("비밀번호 입력안함");
           e.preventDefault();
         }
-        if (document.getElementById("pw").value.length < 6) {
+        if (비밀번호값.length < 6) {
           alert("비밀번호 6자리 이상 입력하셈");
           e.preventDefault();
+        }
+        if (/[A-Z]/.test(비밀번호값) == false) {
+          alert("비밀번호에 대문자 없음");
         }
       });
     </script>
