@@ -76,6 +76,14 @@
     </nav>
 
     <script>
+      $(window).on("scroll", function () {
+        scrollPos = $(window).scrollTop();
+        if (scrollPos <= 100) {
+          $(".navbar-brand").css("font-size", "20px");
+        }
+      });
+    </script>
+    <script>
       var count = 0;
       $(".badge").on("click", function () {
         count += 1;
@@ -99,6 +107,8 @@
       <h4>shirts on sale</h4>
       <button id="btn-login">로그인</button>
     </div>
+
+    <div style="height: 1000px"></div>
 
     <!-- <div class="alert alert-danger">
       <span id="num">5</span>초 이내 구매시 사은품 증정
