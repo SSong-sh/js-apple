@@ -78,8 +78,10 @@
     <script>
       $(window).on("scroll", function () {
         scrollPos = $(window).scrollTop();
-        if (scrollPos <= 100) {
+        if (scrollPos >= 100) {
           $(".navbar-brand").css("font-size", "20px");
+        } else if (scrollPos <= 100) {
+          $(".navbar-brand").css("font-size", "30px");
         }
       });
     </script>
@@ -107,6 +109,24 @@
       <h4>shirts on sale</h4>
       <button id="btn-login">로그인</button>
     </div>
+
+    <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas
+      voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat
+      sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur
+      praesentium exercitationem.
+    </div>
+
+    <script>
+      $(".lorem").on("scroll", function () {
+        var 스크롤양 = document.querySelector(".lorem").scrollTop;
+        var 실제높이 = document.querySelector(".lorem").scrollHeight;
+        var 높이 = document.querySelector(".lorem").clientHeight;
+        if (스크롤양 + 높이 >= 실제높이 - 1) {
+          alert("다 읽었습니다");
+        }
+      });
+    </script>
 
     <div style="height: 1000px"></div>
 
