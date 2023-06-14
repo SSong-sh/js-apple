@@ -122,7 +122,7 @@
         var 스크롤양 = document.querySelector(".lorem").scrollTop;
         var 실제높이 = document.querySelector(".lorem").scrollHeight;
         var 높이 = document.querySelector(".lorem").clientHeight;
-        if (스크롤양 + 높이 >= 실제높이 - 1) {
+        if (스크롤양 + 높이 > 실제높이 - 1) {
           alert("다 읽었습니다");
         }
       });
