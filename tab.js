@@ -1,4 +1,4 @@
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < $(".tab-button").length; i++) {
   $(".tab-button")
     .eq(i)
     .on("click", function () {
