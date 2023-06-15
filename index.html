@@ -36,8 +36,10 @@
       </div>
     </div>
     <script>
-      $(".black-bg").on("click", function () {
-        $(".black-bg").removeClass("show-modal");
+      $(".black-bg").on("click", function (e) {
+        if (e.target == document.querySelector(".black-bg")) {
+          $(".black-bg").removeClass("show-modal");
+        }
       });
     </script>
 
