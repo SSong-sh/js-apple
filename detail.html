@@ -19,6 +19,19 @@
     <title>Hello, world!</title>
   </head>
   <body>
+    <div class="container mt-3">
+      <div class="card p-3">
+        <span class="car_name">상품명</span>
+        <span class="car_price">가격</span>
+      </div>
+    </div>
+
+    <script>
+      var car2 = { name: "소나타", price: 50000 };
+      $(".car_name").html(car2.name);
+      $(".car_price").html(car2.price);
+    </script>
+
     <div class="container mt-5">
       <ul class="list">
         <li class="tab-button" data-id="0">Products</li>
