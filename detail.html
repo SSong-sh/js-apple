@@ -41,7 +41,13 @@
       </select>
     </form>
 
+    <div id="test"></div>
+
     <script>
+      var a = document.createElement("p");
+      a.innerHTML = "안녕";
+      document.querySelector("#test").appendChild(a);
+
       $(".form-select")
         .eq(0)
         .on("input", function () {
