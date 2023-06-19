@@ -31,22 +31,17 @@
       <select class="form-select mt-2 cloth">
         <option>모자</option>
         <option>셔츠</option>
+        <option>바지</option>
       </select>
 
       <select class="form-select mt-2 form-hide">
-        <option>90</option>
         <option>95</option>
         <option>100</option>
-        <option>105</option>
       </select>
     </form>
 
-    <div id="test"></div>
-
     <script>
-      var 탬플릿 = "<p>안녕</p>";
-      document.querySelector("#test").insertAdjacentHTML("beforeend", 탬플릿);
-      $("#test").append(탬플릿);
+      var originalOptions = $(".form-select").eq(1).html();
 
       $(".form-select")
         .eq(0)
@@ -54,8 +49,15 @@
           var item = $(".form-select").eq(0).val();
           if (item == "셔츠") {
             $(".form-select").eq(1).removeClass("form-hide");
+            $(".form-select").eq(1).html(originalOptions);
           } else if (item == "모자") {
             $(".form-select").eq(1).addClass("form-hide");
+          } else if (item == "바지") {
+            $(".form-select").eq(1).removeClass("form-hide");
+            $(".form-select").eq(1).html("");
+            var 탬플릿 = `<option>28</option>
+                          <option>30</option>`;
+            $(".form-select").eq(1).append(탬플릿);
           }
         });
     </script>
