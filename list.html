@@ -39,8 +39,8 @@
       <div class="card">
         <img src="https://via.placeholder.com/600" />
         <div class="card-body">
-          <h5 class="card-title3">Card title</h5>
-          <p class="card-price3">가격 : 70000</p>
+          <h5>Card title</h5>
+          <p>가격 : 70000</p>
           <button class="btn btn-danger">주문하기</button>
         </div>
       </div>
@@ -53,14 +53,20 @@
         { id: 2, price: 60000, title: "Black Monastery" },
       ];
 
-      $(".card-title1").html(products[0].title);
-      $(".card-price1").html("가격 : " + products[0].price);
+      document.querySelectorAll(".card-body h5")[0].innerHTML =
+        products[0].title;
+      document.querySelectorAll(".card-body p")[0].innerHTML =
+        "가격 : " + products[0].price;
 
-      $(".card-title2").html(products[1].title);
-      $(".card-price2").html("가격 : " + products[1].price);
+      document.querySelectorAll(".card-body h5")[1].innerHTML =
+        products[1].title;
+      document.querySelectorAll(".card-body p")[1].innerHTML =
+        "가격 : " + products[1].price;
 
-      $(".card-title3").html(products[2].title);
-      $(".card-price3").html("가격 : " + products[2].price);
+      document.querySelectorAll(".card-body h5")[2].innerHTML =
+        products[2].title;
+      document.querySelectorAll(".card-body p")[2].innerHTML =
+        "가격 : " + products[2].price;
 
       console.log("커밋 테스트");
     </script>
