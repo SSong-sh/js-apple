@@ -20,17 +20,21 @@
   </head>
   <body>
     <script>
-      function 모의고사(past, present) {
+      function 함수(arr, b) {
         var result = 0;
-        for (let i = 0; i < past.lenght; i++) {
-          result = result + arr[i];
-        }
-        console.log(result);
-      }
-      var 과거성적 = [10, 20, 30, 40, 50];
-      var 현재성적 = 40;
 
-      모의고사(과거성적, 현재성적);
+        for (let i = 0; i < arr.length; i++) {
+          result = result + arr[i];
+          avg = result / arr.length;
+        } //array 값 더하기, 평균내는 법
+        if (avg < b) {
+          console.log(`와 ${b - avg}이나 올랐네요`);
+        } else if (avg > b) {
+          console.log(`와 ${avg - b}이나 떨어졌네요`);
+        }
+      }
+
+      함수([10, 20, 30, 40, 50], 10); //20점 떨어졌다고 출력될듯
     </script>
   </body>
 </html>
