@@ -22,6 +22,12 @@
     <div class="container">
       <div class="row"></div>
     </div>
+    <div class="container my-3">
+      <button class="btn btn-danger" id="price">가격순정렬</button>
+    </div>
+    <div class="container">
+      <button class="btn btn-danger" id="more">더보기</button>
+    </div>
 
     <script>
       var products = [
@@ -29,6 +35,22 @@
         { id: 1, price: 50000, title: "Springfield Shirt" },
         { id: 2, price: 60000, title: "Black Monastery" },
       ];
+
+      $("#price").click(function () {
+        products.sort(function (a, b) {
+          return a.price - b.price;
+        });
+        $(".row").html("");
+        products.forEach((a) => {
+          var list = `<div class="col-sm-4">
+          <img src="https://via.placeholder.com/600" class="w-100" />
+          <h5>${a.title}</h5>
+          <p>가격 : ${a.price}</p>
+        </div>`;
+          $(".row").append(list);
+        });
+      });
+
       products.forEach((a) => {
         var list = `<div class="col-sm-4">
           <img src="https://via.placeholder.com/600" class="w-100" />
@@ -39,40 +61,37 @@
       });
     </script>
 
-    <div class="container">
-      <button class="btn btn-danger" id="more">더보기</button>
-    </div>
-
     <script>
       var clickCount = 0;
       var moreButton = document.getElementById("more");
+
       $("#more").click(function () {
         clickCount++;
+
+        function appendData(data) {
+          data.forEach((a) => {
+            var list = `<div class="col-sm-4">
+        <img src="https://via.placeholder.com/600" class="w-100" />
+        <h5>${a.title}</h5>
+        <p>가격 : ${a.price}</p>
+      </div>`;
+            $(".row").append(list);
+          });
+        }
+
         if (clickCount == 1) {
           $.get("https://codingapple1.github.io/js/more1.json").done((data) => {
-            data.forEach((a) => {
-              var list = `<div class="col-sm-4">
-          <img src="https://via.placeholder.com/600" class="w-100" />
-          <h5>${a.title}</h5>
-          <p>가격 : ${a.price}</p>
-        </div>`;
-              $(".row").append(list);
-            });
+            appendData(data);
           });
         } else if (clickCount == 2) {
           $.get("https://codingapple1.github.io/js/more2.json").done((data) => {
-            data.forEach((a) => {
-              var list = `<div class="col-sm-4">
-          <img src="https://via.placeholder.com/600" class="w-100" />
-          <h5>${a.title}</h5>
-          <p>가격 : ${a.price}</p>
-        </div>`;
-              $(".row").append(list);
-            });
+            appendData(data);
+            moreButton.style.display = "none";
           });
-          moreButton.style.display = "none";
         }
       });
     </script>
+
+    <script></script>
   </body>
 </html>
