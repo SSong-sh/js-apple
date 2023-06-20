@@ -44,17 +44,34 @@
     </div>
 
     <script>
+      var clickCount = 0;
+      var moreButton = document.getElementById("more");
       $("#more").click(function () {
-        $.get("https://codingapple1.github.io/js/more1.json").done((data) => {
-          data.forEach((b) => {
-            var list = `<div class="col-sm-4">
+        clickCount++;
+        if (clickCount == 1) {
+          $.get("https://codingapple1.github.io/js/more1.json").done((data) => {
+            data.forEach((a) => {
+              var list = `<div class="col-sm-4">
           <img src="https://via.placeholder.com/600" class="w-100" />
-          <h5>${b.title}</h5>
-          <p>가격 : ${b.price}</p>
+          <h5>${a.title}</h5>
+          <p>가격 : ${a.price}</p>
         </div>`;
-            $(".row").append(list);
+              $(".row").append(list);
+            });
           });
-        });
+        } else if (clickCount == 2) {
+          $.get("https://codingapple1.github.io/js/more2.json").done((data) => {
+            data.forEach((a) => {
+              var list = `<div class="col-sm-4">
+          <img src="https://via.placeholder.com/600" class="w-100" />
+          <h5>${a.title}</h5>
+          <p>가격 : ${a.price}</p>
+        </div>`;
+              $(".row").append(list);
+            });
+          });
+          moreButton.style.display = "none";
+        }
       });
     </script>
   </body>
