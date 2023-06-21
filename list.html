@@ -10,15 +10,16 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+
+    <link rel="stylesheet" href="style.css" />
+    <title>Hello, world!</title>
+  </head>
+  <body>
     <script
       src="https://code.jquery.com/jquery-3.7.0.min.js"
       integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="style.css" />
-    <title>Hello, world!</title>
-  </head>
-  <body>
     <div class="container">
       <div class="row"></div>
     </div>
@@ -34,6 +35,7 @@
     <div class="container">
       <button class="btn btn-danger" id="more">더보기</button>
     </div>
+    <a href="cart.html">장바구니</a>
 
     <script>
       var products = [
@@ -91,21 +93,15 @@
         });
       }
       htmlAdd();
-
-      $(document).ready(function () {
-        $(".buy").click(function () {
-          var title = $(this).siblings("h5").text();
-          var cart = localStorage.getItem("cart"); // 기존에 저장된 값 가져오기
-
-          if (cart) {
-            var cartArray = JSON.parse(cart); // 기존 값이 있으면 배열로 변환
-            cartArray.push(title); // 새로운 title을 배열에 추가
-            localStorage.setItem("cart", JSON.stringify(cartArray)); // 배열을 문자열로 변환하여 저장
-          } else {
-            var newArray = [title]; // 새로운 배열 생성
-            localStorage.setItem("cart", JSON.stringify(newArray)); // 배열을 문자열로 변환하여 저장
-          }
-        });
+      $(".buy").click(function (e) {
+        var title = $(e.target).siblings("h5").text();
+        if (localStorage.getItem("cart") != null) {
+          var 꺼낸거 = JSON.parse(localStorage.cart);
+          꺼낸거.push(title);
+          localStorage.setItem("cart", JSON.stringify(꺼낸거));
+        } else {
+          localStorage.setItem("cart", JSON.stringify([title]));
+        }
       });
     </script>
 
