@@ -93,6 +93,7 @@
         });
       }
       htmlAdd();
+
       $(".buy").click(function (e) {
         var title = $(e.target).siblings("h5").text();
         if (localStorage.getItem("cart") != null) {
@@ -102,6 +103,7 @@
         } else {
           localStorage.setItem("cart", JSON.stringify([title]));
         }
+        console.log(localStorage.getItem());
       });
     </script>
 
