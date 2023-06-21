@@ -85,13 +85,28 @@
           <img src="https://via.placeholder.com/600" class="w-100" />
           <h5>${a.title}</h5>
           <p>가격 : ${a.price}</p>
-          <button>구매</button>
+          <button class="buy">구매</button>
         </div>`;
           $(".row").append(list);
         });
       }
-
       htmlAdd();
+
+      $(document).ready(function () {
+        $(".buy").click(function () {
+          var title = $(this).siblings("h5").text();
+          var cart = localStorage.getItem("cart"); // 기존에 저장된 값 가져오기
+
+          if (cart) {
+            var cartArray = JSON.parse(cart); // 기존 값이 있으면 배열로 변환
+            cartArray.push(title); // 새로운 title을 배열에 추가
+            localStorage.setItem("cart", JSON.stringify(cartArray)); // 배열을 문자열로 변환하여 저장
+          } else {
+            var newArray = [title]; // 새로운 배열 생성
+            localStorage.setItem("cart", JSON.stringify(newArray)); // 배열을 문자열로 변환하여 저장
+          }
+        });
+      });
     </script>
 
     <script>
