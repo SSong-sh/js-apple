@@ -76,6 +76,21 @@
         });
       });
 
+      $("#sale").click(function () {
+        var filteredProduct = products.filter(function (a) {
+          return a.price <= 60000;
+        });
+        $(".row").html("");
+        filteredProduct.forEach((a) => {
+          var list = `<div class="col-sm-4">
+          <img src="https://via.placeholder.com/600" class="w-100" />
+          <h5>${a.title}</h5>
+          <p>가격 : ${a.price}</p>
+        </div>`;
+          $(".row").append(list);
+        });
+      });
+
       products.forEach((a) => {
         var list = `<div class="col-sm-4">
           <img src="https://via.placeholder.com/600" class="w-100" />
