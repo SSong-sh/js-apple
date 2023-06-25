@@ -20,7 +20,9 @@
 
     <script>
       $("#quiz").on("click", function (e) {
-        switch (e.target.innerHTML) {
+        switch (
+          e.target.innerHTML //파라미터 이용해 클릭한 대상 확인 후 스위치 문 돌리기
+        ) {
           case "와이프":
             alert("와이프를 좋아하시네요");
             break;
